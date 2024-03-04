@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-const menuselected = ref('')
+const menuselected = ref(0)
 import DailyViewVue from '@/views/DailyView.vue'
 
 </script>
@@ -11,21 +11,21 @@ import DailyViewVue from '@/views/DailyView.vue'
 
     <v-navigation-drawer>
       <v-list>
-        <v-list-item @click="menuselected='Track expenses'" title="Track expenses"></v-list-item>
-        <v-list-item @click="menuselected='Future Transaction'" title="Future Transaction"></v-list-item>
-        <v-list-item @click="menuselected='Recurring Transaction'" title="Recurring Transaction"></v-list-item>
+        <v-list-item @click="menuselected=0" title="Track expenses"></v-list-item>
+        <v-list-item @click="menuselected=1" title="Future Transaction"></v-list-item>
+        <v-list-item @click="menuselected=3" title="Recurring Transaction"></v-list-item>
 
       </v-list>
     </v-navigation-drawer>
-    <v-main v-if="menuselected==='Track expenses'" class="d-flex align-center justify-center" style="min-height: 300px;">
+    <v-main v-if="menuselected===0" >
       <DailyViewVue/>
     </v-main>
 
-    <v-main v-if="menuselected==='Future Transaction'" class="d-flex align-center justify-center" style="min-height: 300px;">
+    <v-main v-if="menuselected===1">
       2
     </v-main>
 
-    <v-main v-if="menuselected==='Recurring Transaction'" class="d-flex align-center justify-center" style="min-height: 300px;">
+    <v-main v-if="menuselected===3">
       3
     </v-main>
   </v-layout>
